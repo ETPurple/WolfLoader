@@ -17,9 +17,11 @@
 local events
 local test
 local connected
+local player
+local game
 
-local version = "1.2.1"
-local release = "14 April 2020"
+local version = "0.0.1"
+local release = "N/A"
 
 local basepath
 local homepath
@@ -69,6 +71,8 @@ function et_InitGame(levelTime, randomSeed, restartMap)
     events = wl_requireModule("util.events")
     test = wl_requireModule("util.test")
     conected = wl_requireModule("util.connected")
+    player = wl_requireModule("util.player")
+    game = wl_requireModule("util.game")
 
 
     -- register the module

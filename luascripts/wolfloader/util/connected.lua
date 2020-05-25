@@ -1,11 +1,13 @@
-local events = wolfa_requireModule("util.events")
+local events = wl_requireModule("util.events")
+local player = wl_requireModule("util.player")
 
 local connected = {}
 
-
-function playerInfo.Start()
-  et.trap_SendConsoleCommand(et.EXEC_APPEND, "say Player Connected!")
+function connected.Start(clientId, firstTime, isBot)
+  local info = player.getIP(clientId)
+  et.trap_SendConsoleCommand(et.EXEC_APPEND, "say Player Connected!\n")
+  et.trap_SendConsoleCommand(et.EXEC_APPEND, ""..info.."")
 end
-events.handle("onClientConnectAttempt", playerInfo.Start)
+events.handle("onClientConnectAttempt", connected.Start)
 
 return connected
